@@ -1,0 +1,119 @@
+---
+title: 'EKT-816: Final Exam'
+output:
+  pdf_document: default
+  word_document: default
+geometry: margin=1in
+header_includes: 
+  \DeclareMathOperator*\esssup{ess \, sup}
+  \DeclareMathOperator*\plim{plim} 
+  \DeclareMathOperator*\cov {cov}
+bibliography: ../../../../../library.bib
+biblio-style: authordate1
+---
+
+
+
+_There are 55 points available on this exam. It will be graded out of 45 i.e. there are 10 bonus points available._
+
+**Instructions:**
+
+- You have three hours to complete this exam.
+- You may refer to any written or printed materials you find useful, but no electronic devices are permitted.
+- Write your answers in the space provided, on this exam paper. 
+- **Do NOT write your answers in a separate blue book.**
+
+\vspace{0.3\textheight}
+
+**NAME:**
+\vspace{0.15\textheight}
+
+
+**STUDENT NUMBER:**
+\vspace{0.15\textheight}
+
+\newpage
+
+1. Consider a population of high school students who have the option to take an extracurricular program which teaches life skills, allows for some socializing, and provides academic enrichment activities and mentoring. However, the program (and travelling to the venue where it is held) requires a significant time commitment. Students also differ in their abilities, so while participating may help some students' performance in school, it could possibly hurt others.
+
+For a given student, let $Y_0$ be an indicator for whether he or she would graduate without participating in the program, and let $Y_1$ be an indicator for whether he or she would graduate when participating.
+
+(a) List the four possible configurations of the potential outcomes for a given student.
+
+\vspace{0.4\textheight}
+
+(b) Suppose that 10\% of the students would graduate with or without the program; 15\% are strictly harmed by it (i.e. they would graduate without it, but not with it); and that 25\% would not graduate whether or not they participate. What is the average treatment effect of the program?
+
+\vspace{0.5\textheight}
+
+(c) Suppose that students choose to participate if they are strictly better off with the program. What fraction of the population will participate? What will be the average effect of treatment on the treated?
+
+\vspace{0.5\textheight}
+
+(d) A journalist, who has never studied the potential outcomes model, decides to measure the effect of the program by comparing the graduation rate for participants with the graduation rate of non-participants. What would his estimate of the program's effect be? Is it an overestimate or an underestimate of the average treatment effect you computed in (b)? How would you explain the apparent difference in the estimates?
+
+\hfill [$4 \times 5 = 20$ points]
+\vspace{0.5\textheight}
+
+
+\newpage
+2. "Puerperal fever" refers to any type of bacterial infection of a woman's reproductive organs. Many such infections occur during or immediately following childbirth, which is why they are also called "postpartum infections". If untreated, these infections can be fatal. In the 19th century, however, antibiotics had not yet been invented and indeed the germ theory of disease was not well established. 
+
+Figures 1-2 below display data on death rates from the two maternity clinics of Vienna's General Hospital during the 1840s. In the First Clinic, deliveries of newborn children were conducted by physicians, while deliveries in the Second Clinic, they were handled by midwives and nurses. 
+
+(a) What do you notice about the death rates in each clinic from Figures 1-2? Can you conclude _from the evidence in Figure 2_ that - at least during this time - the midwives are more skilled than physicians at delivering children? Why or why not? What might be some other factors that affect death rates in one clinic vs the other?
+\vspace{0.35\textheight}
+
+(b) In 1841, the hospital introduced a new training program for physicians, and this training program involved the handling of cadavers. Midwives did not participate in this training program. And, in May of 1847, the hospital introduced a new policy that required all physicians to wash their hands with chlorine after handling cadavers. If you only had access to the data on death rates from 1846 and 1848, could you estimate the effect of the handwashing policy on death rates?
+
+\vspace{0.5\textheight}
+
+(c) What assumption do you need to make about the trends in death rates in the physician's clinic relative to the midwives' clinic in order to interpret your estimate in (b) above as causal? Do you see any evidence in favor of that assumption, or any evidence against it, in Figures 1-2?
+
+\hfill [$3 \times 5 = 15$ points]
+
+\vspace{0.5\textheight}
+
+\newpage
+\begin{figure}[htb]
+\includegraphics[width = 0.8\textwidth]{death-rates-table-both.png} 
+\caption{Death Rates for Obstetrics Patients in Vienna General Hospital, 1841-1848}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width = 0.8\textwidth]{pre-treatment-both.png} 
+\caption{Death Rates for Obstetrics Patients in Vienna General Hospital, 1841-1846}
+\end{figure}
+
+\newpage
+3. Consider the excerpt from @Dinkelman2011, reproduced as Figure 3 below. 
+
+(a) The dependent variable in each of the regressions in Figure 3 is a dummy for whether a given community area received an Eskom project within the sample period. What sense can you make of a coefficient of $-0.083$ on the variable ``gradient $\times$ 10'' in this case? How should you interpret such a coefficient?
+
+\vspace{0.4\textheight}
+
+(b) Can you think of a problem that might arise in using OLS with a binary dependent variable? Suggest an alternative way of estimating the ``effect'' of these covariates on the binary dependent variable of project receipt that would avoid this problem. 
+
+\vspace{0.5\textheight}
+
+(c) At the bottom of the table is a reported $F$-statistic for each of the specifications. Why does Dinkelman report this $F$-statistic in particular? What concerns might be raised by a low value for this test statistic, and what implications should they have for the reliability of her estimation strategy?
+
+\vspace{0.4\textheight}
+
+(d) From your knowledge of the paper, explain what exclusion restriction is necessary for Dinkelman's estimates to be valid. Can you suggest a way to test whether these restrictions hold?
+
+\hfill [$4 \times 5 = 20$ points]
+
+\vspace{0.4\textheight}
+
+\newpage
+\begin{figure}[htb]
+\includegraphics[width = \textwidth]{dinkelman_table3.pdf} 
+\caption{Excerpt From @Dinkelman2011}
+\end{figure}
+
+
+
+
+
+# References

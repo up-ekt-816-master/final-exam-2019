@@ -1,0 +1,118 @@
+---
+title: 'EKT-816 Final Exam: Suggested Solutions'
+output:
+  pdf_document: default
+  word_document: default
+geometry: margin=1in
+header_includes: 
+  \DeclareMathOperator*\esssup{ess \, sup}
+  \DeclareMathOperator*\plim{plim} 
+  \DeclareMathOperator*\cov {cov}
+bibliography: ../../../../../library.bib
+biblio-style: authordate1
+---
+
+
+
+_There are 55 points available on this exam. It will be graded out of 45 i.e. there are 10 bonus points available._
+
+1. Consider a population of high school students who have the option to take an extracurricular program which teaches life skills, allows for some socializing, and provides academic enrichment activities and mentoring. However, the program (and travelling to the venue where it is held) requires a significant time commitment. Students also differ in their abilities, so while participating may help some students' performance in school, it could possibly hurt others.
+
+For a given student, let $Y_0$ be an indicator for whether he or she would graduate without participating in the program, and let $Y_1$ be an indicator for whether he or she would graduate when participating.
+
+(a) List the four possible configurations of the potential outcomes for a given student.
+
+**Answer:** Whether you graduate or not is binary. The joint distribution of potential outcomes is as follows:
+
+|              | $Y_1 = 0$ | $Y_1 = 1$  |
+| :----------: | :-------: | :---------:|
+| $Y_0 =  0$   |    0.25   |  0.5       |
+| $Y_0 = 1$    |    0.15   |  0.1       |
+
+(b) Suppose that 10\% of the students would graduate with or without the program; 15\% are strictly harmed by it (i.e. they would graduate without it, but not with it); and that 25\% would not graduate whether or not they participate. What is the average treatment effect of the program?
+
+**Answer:** Filling in the joint distribution as above, we have $ATE = E[Y_1 - Y_0] = E[Y_1] - E[Y_0] = 0.6 - 0.25 = 0.35$. So the treatment helps 35\% of the students (on average).
+
+(c) Suppose that students choose to participate if they are strictly better off with the program. What fraction of the population will participate? What will be the average effect of treatment on the treated?
+
+**Answer:** We are given that $D = 1$ if and only if $Y_1 > Y_0$. Thus, $P(D = 1) = P(Y_1 = 1, Y_0 = 0) = 0.5$. For this subset of the population, $Y_1 - Y_0 = 1$ (for everyone who participates), so $ATT = E[Y_1 - Y_0 | D = 1] = 1$.
+
+(d) A journalist, who has never studied the potential outcomes model, decides to measure the effect of the program by comparing the graduation rate for participants with the graduation rate of non-participants. What would his estimate of the program's effect be? Is it an overestimate or an underestimate of the average treatment effect you computed in (b)? How would you explain the apparent difference in the estimates?
+
+\hfill [$4 \times 5 = 20$ points]
+
+**Answer:** The naive difference in means is $E[Y|D = 1] - E[Y| D = 0] = E[Y_1|D = 1] - E[Y_0|D = 0]$. Using the given numbers, we have
+
+$$
+E[Y_0|D = 0] = \frac{0.25 \times 0 + 0.15 \times 1 + 0.1 \times 1}{0.5} = \frac{0.25}{0.5} = 0.5
+$$
+
+and $E[Y_1|D = 1] = 1$. So the journalist would think the program raises graduation rates by $1 - 0.5 = 0.5$, i.e. by 50 percentage points. We know the ATE is only $0.35 < 0.5$, a much smaller effect. Interestingly, although the journalist overestimates the ATE, he _underestimates_ the ATT, which is 1! Of course, the discrepancy arises from selection bias: the set of students who choose $D = 0$ includes many who would never graduate or would have graduated anyway, with or without the program.
+
+2. "Puerperal fever" refers to any type of bacterial infection of a woman's reproductive organs. Many such infections occur during or immediately following childbirth, which is why they are also called "postpartum infections". If untreated, these infections can be fatal. In the 19th century, however, antibiotics had not yet been invented and indeed the germ theory of disease was not well established. 
+
+Figures 1-2 below display data on death rates from the two maternity clinics of Vienna's General Hospital during the 1840s. In the First Clinic, deliveries of newborn children were conducted by physicians, while deliveries in the Second Clinic, they were handled by midwives and nurses. 
+
+(a) What do you notice about the death rates in each clinic from Figures 1-2? Can you conclude _from the evidence in Figure 2_ that - at least during this time - the midwives are more skilled than physicians at delivering children? Why or why not? What might be some other factors that affect death rates in one clinic vs the other?
+
+**Answer:** Death rates are always higher in the first clinic, where the physicians handle births. That difference _could_ be due to differences in skill, but many other things might differ between the two clinics - they might serve different types of women (e.g. maybe sicker women go to one vs the other), or maybe there are environmental factors that make one clinic more dangerous. (Indeed this was the case, as we discuss below.)
+
+(b) In 1841, the hospital introduced a new training program for physicians, and this training program involved the handling of cadavers. Midwives did not participate in this training program. And, in May of 1847, the hospital introduced a new policy that required all physicians to wash their hands with chlorine after handling cadavers. If you only had access to the data on death rates from 1846 and 1848, could you estimate the effect of the handwashing policy on death rates?
+
+**Answer:** The diff-in-diff estimate of the effect of the handwashing policy is
+
+$$
+(1.27 - 11.4) - (1.33-0.9) = -10.13 -0.43 = -10.56
+$$
+
+i.e. the policy seems to have reduced deaths by 10.56 percentage points per year. Although we don't have standard errors on this estimate, it is an incredibly large effect, reducing deaths (at least from postpartum infections) at the physician's clinic to nearly zero. (Given what we know about the mechanisms of infection, this isn't so surprising in retrospect!)
+
+(c) What assumption do you need to make about the trends in death rates in the physician's clinic relative to the midwives' clinic in order to interpret your estimate in (b) above as causal? Do you see any evidence in favor of that assumption, or any evidence against it, in Figures 1-2?
+
+\hfill [$3 \times 5 = 15$ points]
+
+**Answer:** As discussed in (a), there may be other unobserved factors that account for the differences in the _level_ of death rates. But, if the _trends_ in both clinics would have been the same in the absence of the policy, we can interpret the DD estimate as causal. Figure 2 would seem to provide us with a lot of confidence in that assumption: for the period 1841-1846, it seems like death rates in both clinics do indeed move in parallel. 
+
+\newpage
+\begin{figure}[htb]
+\includegraphics[width = 0.8\textwidth]{death-rates-table-both.png} 
+\caption{Death Rates for Obstetrics Patients in Vienna General Hospital, 1841-1848}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width = 0.8\textwidth]{pre-treatment-both.png} 
+\caption{Death Rates for Obstetrics Patients in Vienna General Hospital, 1841-1846}
+\end{figure}
+
+\newpage
+3. Consider the excerpt from @Dinkelman2011, reproduced as Figure 3 below. 
+
+(a) The dependent variable in each of the regressions in Figure 3 is a dummy for whether a given community area received an Eskom project within the sample period. What sense can you make of a coefficient of $-0.083$ on the variable ``gradient $\times$ 10'' in this case? How should you interpret such a coefficient?
+
+**Answer:** Because the dependent variable is binary, the coefficients have the interpretation as the effects on the probability of recieving an Eskom project. In particular, a community with average land gradient that is 10 degrees steeper than another (otherwise equal) community, would have been 8.3 percentage points less likely to be connected to the electricity grid over the sample period. 
+
+(b) Can you think of a problem that might arise in using OLS with a binary dependent variable? Suggest an alternative way of estimating the ``effect'' of these covariates on the binary dependent variable of project receipt that would avoid this problem. 
+
+**Answer:** A generic problem here is that predicted values can lie outside of the unit interval, which doesn't make sense for probabilities. You could think of using a logit or probit specification instead, although that seems less desirable in context because we actually want to use these predicted values in the "second stage". (See the discussion of "forbidden regressions" in section 4.6.1 of "Mostly Harmless Econometrics".)
+
+(c) At the bottom of the table is a reported $F$-statistic for each of the specifications. Why does Dinkelman report this $F$-statistic in particular? What concerns might be raised by a low value for this test statistic, and what implications should they have for the reliability of her estimation strategy?
+
+**Answer:** The F-statistic in question is for a test of the null hypothesis that land gradient can be excluded from the first-stage regression. Low values of this test statistic can indicate that the instrument (in this case, land gradient) is weak. Weak instruments are a problem because they tend to increase the bias of IV estimates.
+
+(d) From your knowledge of the paper, explain what exclusion restriction is necessary for Dinkelman's estimates to be valid. Can you suggest a way to test whether these restrictions hold?
+
+\hfill [$4 \times 5 = 20$ points]
+
+**Answer:** The exclusion restriction we need is that land gradient does not affect employment, except through its effects on the likelihood of electrification. If we had multiple instruments, we could perform an overidentification test (although that is really just a test of whether the instruments agree with each other, not whether they are "valid" - they could both be invalid and the test might still fail to reject). But, the econometric model in this paper is just-identified, so even that is not possible.
+
+\newpage
+\begin{figure}[htb]
+\includegraphics[width = \textwidth]{dinkelman_table3.pdf} 
+\caption{Excerpt From @Dinkelman2011}
+\end{figure}
+
+
+
+
+
+# References
