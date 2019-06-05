@@ -105,6 +105,8 @@ i.e. the policy seems to have reduced deaths by 10.56 percentage points per year
 
 **Answer:** The exclusion restriction we need is that land gradient does not affect employment, except through its effects on the likelihood of electrification. If we had multiple instruments, we could perform an overidentification test (although that is really just a test of whether the instruments agree with each other, not whether they are "valid" - they could both be invalid and the test might still fail to reject). But, the econometric model in this paper is just-identified, so even that is not possible.
 
+Some of you mentioned the placebo tests that Dinkelman does in the paper, and indeed this is a way of providing indirect support for the exclusion restriction (though not of testing it).
+
 \newpage
 \begin{figure}[htb]
 \includegraphics[width = \textwidth]{dinkelman_table3.pdf} 
